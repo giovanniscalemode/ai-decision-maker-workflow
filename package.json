@@ -1,0 +1,33 @@
+{
+  "name": "ai-decision-maker-workflow",
+  "version": "1.0.0",
+  "description": "AI-powered workflow automation system for intelligent lead routing",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "deploy:functions": "npm run deploy:decision-maker && npm run deploy:lead-processor",
+    "deploy:decision-maker": "supabase functions deploy decision-maker",
+    "deploy:lead-processor": "supabase functions deploy lead-processor",
+    "db:push": "supabase db push",
+    "db:migrate": "supabase migration up",
+    "generate:types": "supabase gen types typescript --local > src/types/database.types.ts"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "next": "^14.0.0",
+    "lucide-react": "^0.263.1",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/node": "^20.0.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24"
+  }
+}
